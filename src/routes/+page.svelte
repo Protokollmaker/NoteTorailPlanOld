@@ -1,7 +1,6 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import welcome_fallback from '$lib/images/terminal.svg';
+	const welcome_fallbackEncoded = `data:image/svg+xml,${encodeURIComponent(welcome_fallback)}`;
 </script>
 
 <svelte:head>
@@ -10,50 +9,50 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+	<div class="line"></div>
+	<div class="plus">
+		<div></div>
+		<div></div>
+	</div>
+	<svg width="10" height="10">
+  <circle cx="4" cy="4" r="3" stroke="#000000" stroke-width="2" fill="#ffffff" />
+	</svg>
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
+.line {
+	background-color: #212121;
+	width: 100px;
+	height: 4px;
+	border-radius: 30px;
+}
+.plus {
+	zoom: 0.7;
+	background-color: #323232;
+	height: 30px;
+	width: 30px;
+	border-radius: 5px;
+}
 
-	h1 {
-		width: 100%;
-	}
+.plus div {
+	position: relative;
+	background-color: #ffffff;
+	height: 2px;
+	width: 20px;
+	border-radius: 10px;
+}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
+.plus div:nth-child(1) {
+  transform: translate(5px, 14px); /*6,5,13,5*/
+}
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+.plus div:nth-child(2) {
+  transform: translate(5px, 12px) rotate(90deg); /*6,5,13,5*/
+}
+
+svg {
+	zoom: 1;
+	height: 8px;
+	width: 8px;
+}
 </style>
