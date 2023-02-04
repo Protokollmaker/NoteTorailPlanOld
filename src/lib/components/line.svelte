@@ -38,7 +38,7 @@
           {borderStyle}"
       on:click={handleClick}></div>
   {#if border}
-    <Addbutton position={{x: position.x, y: position.y}}/>
+    <Addbutton position={{x: position.x, y: position.y}} direction="East"/>
   {/if}
 </section>
 

@@ -8,3 +8,5 @@ export const s_schema = writable([
 	{ rail: 'XD3', connect: [{ rail: 'defalte', position: 'unten' }] },
 	{ rail: 'XD6', connect: [{ rail: 'XD7', position: 'oben', selbst: 'unten' }] }
 ]);
+
+export const s_betribsmittel = writable([{}]);
