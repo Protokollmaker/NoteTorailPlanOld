@@ -1,45 +1,47 @@
 <script>
-	import welcome_fallback from '$lib/images/terminal.svg';
-	const welcome_fallbackEncoded = `data:image/svg+xml,${encodeURIComponent(welcome_fallback)}`;
+  import Terminal from '$lib/components/terminal.svelte';
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+  <title>Home</title>
+  <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
 <section>
-	<div class="line"></div>
-	<div class="plus">
-		<div></div>
-		<div></div>
-	</div>
-	<svg width="10" height="10">
-  <circle cx="4" cy="4" r="3" stroke="#000000" stroke-width="2" fill="#ffffff" />
-	</svg>
+  <div class="line"></div>
+  <div class="plus">
+    <div></div>
+    <div></div>
+  </div>
+  <div class="canvas">
+    <Terminal filled={false} textpos={["top", "right"]} text={"XD1:1"} position={{x: 50, y: 50}}/>
+		<Terminal filled={false} textpos={["midd", "right"]} text={"XD1:213"} position={{x: 150, y: 50}}/>
+		<Terminal filled={false} textpos={["bottom", "right"]} text={"XD1:3242"} position={{x: 250, y: 50}}/>
+  </div>
+  <!--<Terminal filled={false} textpos={["top", "center"]} text={"XD2:23"}/>-->
 </section>
 
 <style>
 .line {
-	background-color: #212121;
-	width: 100px;
-	height: 4px;
-	border-radius: 30px;
+  background-color: var(--main-bg-color);
+  width: 100px;
+  height: 2px;
+  border-radius: 30px;
 }
 .plus {
-	zoom: 0.7;
-	background-color: #323232;
-	height: 30px;
-	width: 30px;
-	border-radius: 5px;
+  zoom: 0.7;
+  background-color: var(--main-bg-color);
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
 }
 
 .plus div {
-	position: relative;
-	background-color: #ffffff;
-	height: 2px;
-	width: 20px;
-	border-radius: 10px;
+  position: relative;
+  background-color: #ffffff;
+  height: 2px;
+  width: 20px;
+  border-radius: 10px;
 }
 
 .plus div:nth-child(1) {
@@ -51,8 +53,17 @@
 }
 
 svg {
-	zoom: 1;
-	height: 8px;
-	width: 8px;
+  zoom: 1;
+  height: 8px;
+  width: 8px;
+}
+
+.canvas {
+  height: 1000px;
+  width: 1000px;
+}
+
+.canvas {
+	background-color: #f0f0f0;
 }
 </style>
