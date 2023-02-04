@@ -1,6 +1,7 @@
 <script>
   import Terminal from '$lib/components/terminal.svelte';
 	import Line from '$lib/components/line.svelte';
+	import Addbutton from "$lib/components/addpath.svelte";
 </script>
 
 <svelte:head>
@@ -15,6 +16,7 @@
 		<Terminal position={{x: 60, y: 80}}  filled={false} textpos={["midd", "left"]} text={"XD1:10"} />
     <Terminal position={{x: 60, y: 50}}  filled={false} textpos={["bottom", "left"]} text={"XD1:1"} />
 		<Terminal position={{x: 150, y: 50}} filled={true} textpos={["top", "center"]} />
+		<Addbutton position={{x: 10, y: 10}}/>
   </div>
 </section>
 

@@ -4,13 +4,18 @@
 </script>
 
 <section>
-  <div class="plus">
+  <div class="small_line"></div>
+  <div class="plus" 
+    style="transform: translate({position.x}px,{position.y}px);">
     <div></div>
     <div></div>
   </div>
 </section>
 
 <style>
+section{
+  position: absolute;
+}
 .plus {
   zoom: 0.7;
   background-color: var(--main-bg-color);
