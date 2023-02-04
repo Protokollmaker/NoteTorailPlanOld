@@ -36,7 +36,7 @@
     }
   }
   $: settext(text_height, text_width);
-  
+  if (text == undefined) text = "";
 </script>
 
 <section style="transform: translate({position.x}px,{position.y}px);">
@@ -45,7 +45,7 @@
           bind:clientWidth={text_width} bind:clientHeight={text_height}>{text}</div>
     <div class="terminal" style="width: 8px;height: 8px;">
       <svg width="8" height="8">
-        <circle cx="4" cy="4" r="3" stroke="#000000" stroke-width="2" fill="{color}" />
+        <circle cx="4" cy="4" r="3" stroke="#212121" stroke-width="2" fill="{color}" />
       </svg>
     <div>
 </section>
