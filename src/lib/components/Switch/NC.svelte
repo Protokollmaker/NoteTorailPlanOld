@@ -5,14 +5,14 @@
   export let toggle = false;
   export let active = false;
   export let betätigungsweg = "none";
-  export const Kontakbezeichnung = [13, 14];
+  export const Kontakbezeichnung = [21, 22];
   if (betätigungsweg == "none" && toggle) {
     throw new Error("can't have a toggel in line when ther is no line (no actuation path)");
   }
 </script>
 
 <section style="transform: translate({position.x-92}px, {position.y}px);">
-  <span class="name">{Bezeichnung}</span>
+  <span class="name" contenteditable="true">{Bezeichnung}</span>
   <span class="Kontakbezeichnung oben">{Kontakbezeichnung[0]}</span>
   <span class="Kontakbezeichnung unten">{Kontakbezeichnung[1]}</span>
   <svg width="52" height="34" viewBox="0 0 52 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
     {#if betätigungsweg == "push" || betätigungsweg=="turn" || betätigungsweg=="pull" || betätigungsweg=="generall"}
     <rect x="9" y="27" width="19" height="2" rx="0.7" transform="rotate(-90 9 27)" fill="#212121"/>
     {/if}
-    {#if (betätigungsweg != "none" && toggle)} <!--Button arror-->
+    {#if (betätigungsweg != "none" && !toggle)} <!--Button arror-->
       <path d="M28.5603 14.0244L24.21 15.6227C22.4629 16.2646 22.4629 18.7354 24.21 19.3773L28.5603 20.9756C29.8657 21.4553 31.25 20.4891 31.25 19.0983V15.9017C31.25 14.5109 29.8657 13.5447 28.5603 14.0244Z" stroke="#212121" stroke-width="2"/>
     {/if}
     {#if betätigungsweg == "pull" }
@@ -48,7 +48,7 @@
       <rect x="36" y="16" width="5" height="2" rx="0.7" fill="#212121"/>
       <rect x="14" y="16" width="5" height="2" rx="0.7" fill="#212121"/>
     {/if}
-    {#if betätigungsweg != "none" && betätigungsweg != "endschalter" && !toggle} <!--Toggle arror-->
+    {#if betätigungsweg != "none" && betätigungsweg != "endschalter" && toggle} <!--Toggle arror-->
     <g clip-path="url(#clip2_412_103)">
       <rect x="26.2039" y="20.0994" width="7.21161" height="2" rx="1" transform="rotate(-45 26.2039 20.0994)" fill="#212121"/>
       <rect x="23.91" y="15" width="7.19937" height="2" rx="1" transform="rotate(45 23.91 15)" fill="#212121"/>
@@ -89,6 +89,8 @@ span {
   position: absolute;
 }
 .name{
+  /*all: unset;*/
+  outline: 0px solid transparent;
   transform: translate(-40px, 8px);
 }
 

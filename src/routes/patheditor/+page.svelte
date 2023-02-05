@@ -23,8 +23,9 @@
     <NormalyOpen position={{x:120, y:200}} betätigungsweg="generall" toggle={false} Bezeichnung="SF1" bind:value="{test}"/>
     <NormalyOpen position={{x:120, y:300}} betätigungsweg="generall" toggle={true} Bezeichnung="SF4" bind:value="{test}"/>
     <NormalyOpen position={{x:120, y:120}} betätigungsweg="none" Bezeichnung="Q1" bind:value="{test}"/>-->
-    <Line     position={{x: 120, y: 0}} length=120 direction="vertical" note=1/>
-    <NormalyClosed position={{x:120, y:120}} betätigungsweg="notaus" Bezeichnung="Q1" bind:value="{test}"/>
+    <Line          position={{x: 120, y: 0}} length=120 direction="vertical" note=1/>
+    <NormalyClosed position={{x:100, y:0}} betätigungsweg="notaus" Bezeichnung="Q1" bind:value="{test}" toggle={true}/>
+    <NormalyOpen   position={{x:40, y:120}} betätigungsweg="pull" Bezeichnung="SF10" bind:value="{test}" toggle={true}/>
   </div>
 </section>
 
