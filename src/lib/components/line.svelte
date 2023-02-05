@@ -31,11 +31,9 @@
 	}
 </script>
 
-<section>
+<section style="transform: translate({positionCalebraton.x}px,{positionCalebraton.y}px);width: {width}px; height: {height}px;">
  <div class="line"
-      style="width: {width}px; height: {height}px;
-          transform: translate({positionCalebraton.x}px,{positionCalebraton.y}px);
-          {borderStyle}"
+      style="width: {width}px; height: {height}px; {borderStyle}"
       on:click={handleClick}></div>
   {#if border}
     <Addbutton position={{x: position.x, y: position.y}} direction="East"/>

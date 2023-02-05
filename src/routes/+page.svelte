@@ -12,12 +12,4 @@
 </section>
 
 <style>
-.canvas {
-  height: 1000px;
-  width: 1000px;
-}
-
-.canvas {
-	background-color: #f0f0f0;
-}
 </style>

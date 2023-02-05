@@ -74,10 +74,10 @@
 
 <style>
 section {
-  position: absolute;
   width: fit-content;
   /*top, rechts, unten, links*/
   margin: 0px 10px 0px 50px;
+  height: 34px;
 }
 
 span {

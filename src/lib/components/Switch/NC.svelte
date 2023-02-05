@@ -5,7 +5,7 @@
   export let toggle = false;
   export let active = false;
   export let betätigungsweg = "none";
-  export const Kontakbezeichnung = [21, 22];
+  export let Kontakbezeichnung = [21, 22];
   if (betätigungsweg == "none" && toggle) {
     throw new Error("can't have a toggel in line when ther is no line (no actuation path)");
   }
