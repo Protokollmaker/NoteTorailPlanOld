@@ -3,7 +3,8 @@
   import { initializeApp , getApps, getApp} from "firebase/app";
   import { getFirestore } from "firebase/firestore";
   import { browser } from "$app/environment";
-  import { getAuth, signInWithEmailAndPassword, signOut} from "firebase/auth";
+  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged} from "firebase/auth";
+  import { onMount } from 'svelte';
  //console.log(auth);
  const firebaseApp = browser && (getApps().length === 0 ? initializeApp(firebaseConfig) : getApp());
  const db = browser && getFirestore(firebaseApp);
@@ -14,9 +15,6 @@
  const login = () => {
    const auth = browser && getAuth(firebaseApp);
   signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      user = userCredential.user;
-    })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -29,6 +27,13 @@
      user = null;
    });
  };
+
+ onMount(async () => {
+		const auth = getAuth(firebaseApp);
+    onAuthStateChanged(auth, (newUser) => {
+      user = newUser;
+    });
+	});
 </script>
 
 <section>
