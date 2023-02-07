@@ -1,15 +1,13 @@
 <script lang="ts">
-  let food: string = "banana";
   import { firebaseConfig } from "$lib/firebaseConfig"
   import { initializeApp , getApps, getApp} from "firebase/app";
-  import { getFirestore } from "firebase/firestore";
+  import { getFirestore, collection, query, where, onSnapshot } from "firebase/firestore";
   import { browser } from "$app/environment";
   import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged} from "firebase/auth";
   import { onMount } from 'svelte';
  //console.log(auth);
  const firebaseApp = browser && (getApps().length === 0 ? initializeApp(firebaseConfig) : getApp());
  const db = browser && getFirestore(firebaseApp);
- console.log({firebaseApp, db});
  let email ="";
  let password ="";
  let user;
@@ -35,6 +33,11 @@
       user = newUser;
     });
 	});
+  const colRef = collection(db, "cities")
+  let submite = () => {
+    
+  }
+  let test="";
 </script>
 
 <section>
@@ -45,6 +48,11 @@
   {#if user}
   <button type="button" on:click={logout}>logout</button>
   {/if}
+
+  <br/>
+  <h1>Test write</h1>
+  <input type="text" id="text" placehoder="test input" bind:value={test} />
+  <button type="button" on:click={submite}>submit</button>
 </section>
 
 <style>
