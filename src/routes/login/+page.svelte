@@ -1,4 +1,5 @@
 <script lang="ts">
+  let food: string = "banana";
   import { firebaseConfig } from "$lib/firebaseConfig"
   import { initializeApp , getApps, getApp} from "firebase/app";
   import { getFirestore } from "firebase/firestore";
