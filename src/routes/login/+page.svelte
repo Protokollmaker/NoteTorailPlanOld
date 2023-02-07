@@ -33,9 +33,17 @@
       user = newUser;
     });
 	});
-  const colRef = collection(db, "cities")
-  let submite = () => {
-    
+  let cities = [];
+  if (browser) {
+    const colRef = browser && collection(db, "test");
+    const unsubscribe = onSnapshot(colRef, (querySnapshot) =>{
+      let citiesw = [];
+      querySnapshot.forEach((doc) => {
+        let citie = {...doc.data(), id: doc.id}
+        citiesw.push(citie);
+      });
+      cities = citiesw;
+    });
   }
   let test="";
 </script>
@@ -51,8 +59,11 @@
 
   <br/>
   <h1>Test write</h1>
+  {#each cities as test}
+			<div>{test.bool}</div>
+	{/each}
+  <br/>
   <input type="text" id="text" placehoder="test input" bind:value={test} />
-  <button type="button" on:click={submite}>submit</button>
 </section>
 
 <style>
